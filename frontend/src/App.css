@@ -24,6 +24,10 @@
   color: white;
 }
 
+.App-body {
+  background-image: "https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExYTduNzhsdzIxMzI0NHJzM2w2Yjd3YzI2c2w5cWNjcGFvYmh3Y2czciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/U3qYN8S0j3bpK/giphy.gif";
+}
+
 .App-link {
   color: #61dafb;
 }
