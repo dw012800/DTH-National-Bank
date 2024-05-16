@@ -8,6 +8,7 @@ import { Form, Container, Row, Col } from "react-bootstrap";
 const Login = (props) => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+  const [Money, setMoney] = useState('')
   
   const navigate = useNavigate()
 
@@ -45,6 +46,12 @@ navigate("/user")
         </div>
         <br />
         <div className={'inputContainer'}>
+        <input
+            value={Money}
+            placeholder="Enter your inital deposit"
+            onChange={(ev) => setMoney(ev.target.value)}
+            className={'inputBox'}
+          />
           <input className={'inputButton'} type="button" onClick={onButtonClick} value={'Log in'} />
         </div>
       </div>
