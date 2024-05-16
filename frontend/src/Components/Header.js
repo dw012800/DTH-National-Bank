@@ -17,8 +17,8 @@ return (
         <Link to="/">
           <div>Home page</div>
         </Link>
-        <Link to="/login">
-          <div>Login</div>
+        <Link to="/create">
+          <div>Create Account</div>
         </Link>
         <Link to="/?">
           <div>?</div>
