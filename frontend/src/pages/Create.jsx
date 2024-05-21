@@ -1,13 +1,13 @@
 import Header from "../Components/Header";
 import React, { useState } from 'react'
-import { redirect, useNavigate } from 'react-router-dom'
-import  { Redirect } from 'react-router-dom'
+import {useNavigate } from 'react-router-dom'
+import User from "./LoginPage";
+
 
  
 
-import { Form, Container, Row, Col } from "react-bootstrap";
 
-function Registration(props){
+ function Registration(props){
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [email, setEmail] = useState('')
@@ -18,11 +18,11 @@ function Registration(props){
     const [CheckingAccount, setAccount] = useState('')
     const [name, setName] = useState('')
 
+  const navigate = useNavigate()
+  
 
-    const navigate = useNavigate()
-
-    const onButtonClick = () => {
-      
+    const onButtonClick = (props) => {
+       
         
     
       console.log(username)
@@ -33,12 +33,16 @@ function Registration(props){
       console.log(creditApp)
       console.log(creditScore)
       console.log(CheckingAccount)
-      console.log(name)
+      console.log(name)  
+      navigate("/User")
+     return(
+<h1>{setName}</h1>
+     ) 
      
-  navigate("/User")
+
     
-   
- }
+   }
+
 
 
 
@@ -46,11 +50,12 @@ function Registration(props){
         <>
         <Header/>
         <div>
-            <Form action="post">
+         
+            <form action="post">
             <ul>
             <h1>Registration</h1>
            <li> <label>Username</label></li>
-            <input type="text" onChange={(ev) => setUsername(ev.target.value)}  >
+            <input type="text" onChange={(ev) => setUsername(ev.target.value)}  > 
             </input>
             <li>   <label>password</label> </li>
             <input type="password" onChange={(ev) => setPassword(ev.target.value)} ></input>
@@ -67,15 +72,20 @@ function Registration(props){
             <input type="number" onChange={(ev) => setCreditScore(ev.target.value)} ></input>
             <li><label> checkingAccount</label></li>
             <input type="number"onChange={(ev) => setAccount(ev.target.value)} ></input>
-            <li> <input className={'inputButton'} type="button" onClick={onButtonClick} value={'submit'} /></li>
-            </ul>
-            </Form>
+            <li> <input className={'inputButton'} type="button" onClick={onButtonClick} value={'submit'}  /></li> 
+           </ul> 
+          
+            </form>
         </div>
-        
+      <img src = "https://media4.giphy.com/media/AuG7qwUzshT7lXy7FB/200w.webp?cid=ecf05e47dod613zffn3655qeibdwvj9xcykkeyac3uyvb1g3&ep=v1_gifs_related&rid=200w.webp&ct=g"/>
+      <img src =  "https://media3.giphy.com/media/8xoZGp16eCZoN7KJ1d/200w.webp?cid=ecf05e47dod613zffn3655qeibdwvj9xcykkeyac3uyvb1g3&ep=v1_gifs_related&rid=200w.webp&ct=g"/>
         </>
+
+
+
     )
 
 }
+ 
 
-
-export default Registration
+export default Registration;
