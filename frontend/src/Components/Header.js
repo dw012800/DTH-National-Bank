@@ -20,8 +20,8 @@ return (
         <Link to="/create">
           <div>Create Account</div>
         </Link>
-        <Link to="/?">
-          <div>?</div>
+        <Link to="/Transaction">
+          <div>Transactions for your account</div>
         </Link>
       </nav>
     </header>
