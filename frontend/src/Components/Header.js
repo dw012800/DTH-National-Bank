@@ -8,20 +8,21 @@ function Header() {
         border: "3px solid black",
         padding: "8px",
         width: "90%",
-        margin: "auto",      };
+
+};
 return (
     <header>
       <h1>Mobile and computer based banking
       </h1>
-      <nav style={navStyle}>
-        <Link to="/">
+      <nav class="navStyle" style={navStyle}>
+        <Link class="navLink" to="/">
           <div>Home page</div>
         </Link>
-        <Link to="/create">
+        <Link class="navLink" to="/create">
           <div>Create Account</div>
         </Link>
-        <Link to="/Transaction">
-          <div>Transactions for your account</div>
+        <Link class="navLink" to="/Transaction">
+          <div>Transactions</div>
         </Link>
       </nav>
     </header>
