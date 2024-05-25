@@ -21,7 +21,10 @@ return (
           <div>Create Account</div>
         </Link>
         <Link to="/Transaction">
-          <div>Transactions for your account</div>
+          <div>Transactions</div>
+        </Link>
+        <Link to="/log">
+          <div>Login</div>
         </Link>
       </nav>
     </header>

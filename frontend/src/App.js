@@ -6,7 +6,7 @@ import Tron from './Components/Form';
 import Home from './pages/home';
 import MyForm from './pages/Create';
 import Transactions from './pages/Trans';
-import Tester from './index'
+import Login from './pages/LoginPage';
 import { useEffect, useState } from "react";
 
 
@@ -43,6 +43,7 @@ function App(props) {
  <Route exact path="/" element={<Home/>}/>
 <Route exact path="/Create" element={<MyForm/>}/>
 <Route exact path="/Transaction" element={<Transactions/>}/>
+<Route exact path="/Log" element={<Login/>}/>
 
 </Routes>
  

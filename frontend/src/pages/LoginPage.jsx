@@ -1,32 +1,69 @@
-import Login from "../Components/Form"
-import Header from "../Components/Header";
-import Withdraw from "../Components/Withdrawl";
-import Deposit from "../Components/Deposit";
-import React, { useState } from 'react'
+import { FaUserLarge } from "react-icons/fa6";
+import { RiLockPasswordLine } from "react-icons/ri";
+import './styles/Login.css'
+import './Login.scss'
+import { useState } from 'react';
+import {  useNavigate } from 'react-router-dom'
+import Transactions from "./Trans";
 
 
 
-
-
-export function User(props)
+ function Login(props)
 {
-  console.log(props.name) 
+ let [Username, setU] = useState("");
+ const [Password, setP] = useState("");  
 
-  const [User] = useState(null);
+ 
+    const navigate = useNavigate()  
 
-  return(
+  const sub = (event) => {
+  event.preventDefault(); 
+  console.log(`${Username}`)
+if (Username === "tevon64")
+  {
+  Username = props.Login
+console.log("step 1")
+alert("Login successful, Redirecting....")
+navigate("/Transaction")
+  }
+else
+  {
+  console.log("missed")
+  }
+}
+  
+return(
 
-    <>
-   
-<Header/>
-    <h1>Made it to Login</h1>
 
- <Withdraw/>
-<Deposit/>
-    </>   
-  )
+    <> 
+  <div className="Custom-Part">
+      <div className="wrapper">
+        <form action="">
+          <h1>Login</h1>
+          <div className="input-box">
+            <input type="text" placeholder="User"  onChange={(e) => setU(e.target.value)}  value={Username}  required/>
+            <FaUserLarge />
+          </div>
+          <div className="input-box">
+            <input type="password" placeholder="Password" onChange={(e) => setP(e.target.value)}  value={Password}  required/>
+            <RiLockPasswordLine />
+          </div>
+          <button onClick={sub} type ="submit">Login</button>
+
+          <div className="register-link">
+            <p>Dont have a bank account? <a href = "/create">Register</a></p>
+          </div>
+        </form>
+
+      </div>
+      </div>
+      </>
+    )
+  
 
 
 }
 
-export default User;
+
+
+export default Login;
