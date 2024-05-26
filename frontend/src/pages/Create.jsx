@@ -1,81 +1,126 @@
-import Header from "../Components/Header";
-import React, { useState } from 'react'
-import { redirect, useNavigate } from 'react-router-dom'
-import  { Redirect } from 'react-router-dom'
+import { useState } from 'react';
+import ReactDOM from 'react-dom/client';
 
- 
-
-import { Form, Container, Row, Col } from "react-bootstrap";
-
-function Registration(props){
-    const [username, setUsername] = useState('')
-    const [password, setPassword] = useState('')
-    const [email, setEmail] = useState('')
-    const [phoneNumber, setPhoneNumber] = useState('')
-    const [LoanOfficer, setOfficer] = useState('')
-    const [creditApp, setCreditapp] = useState('')
-    const [creditScore, setCreditScore] = useState('')
-    const [CheckingAccount, setAccount] = useState('')
-    const [name, setName] = useState('')
+function MyForm(props) {
+  const [Username, setU] = useState("");
+  const [email, setEmail] = useState("");
+  const [phoneNumber, setPhone] = useState("");
+  const [loanOfficer, setOff] = useState("");
+  const [creditApp, setApp] = useState("");
+  const [creditScore, setScore] = useState("");
+  const [CheckingAccount, setCheck] = useState("");
+  const [name, setName] = useState("");
+  
 
 
-    const navigate = useNavigate()
+  const  handleSubmit = async (event,) => {
+    event.preventDefault();
+    console.log(`The name enter is :  ${name}`)
+    console.log(`The Username choosen was: ${Username}`)
+    const res = await fetch ("http://localhost:3000/User", {
+        method: "POST",  
+        headers:{
+            Accept:"application/json",
+            "Content-type":"application/json"
+          },
+          body: JSON.stringify({
+            Username,
+            email,
+            phoneNumber,
+            loanOfficer,
+            creditApp,
+            creditScore,
+            CheckingAccount,
+            name
+          })
+        })
+        const data = await res.json();
+        if(res.status === 422 || !data){
+          console.log("error")
+        }else{
+          console.log("success!!!!!")
+        }
+        console.log(name)
+      }
+  
 
-    const onButtonClick = () => {
-      
-        
-    
-      console.log(username)
-      console.log(password)
-      console.log(email)
-      console.log(phoneNumber)
-      console.log(LoanOfficer)
-      console.log(creditApp)
-      console.log(creditScore)
-      console.log(CheckingAccount)
-      console.log(name)
-     
-  navigate("/User")
-    
-   
- }
+  return (
 
 
+    <><form onSubmit={handleSubmit}>
+      <ul>
+        <li>
+          <label>Enter your Username:
+            <input
+              type="text"
+              value={Username}
+              onChange={(e) => setU(e.target.value)} />
+          </label>
+        </li>
+        <li>
+          <label>Enter your name:
+            <input
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)} />
+          </label>
+        </li>
+        <li>
+          <label>Enter your Email:
+            <input
+              type="text"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)} />
+          </label>
+        </li>
+        <li>
+          <label>Enter your Phonenumber:
+            <input
+              type="number"
+              value={phoneNumber}
+              onChange={(e) => setPhone(e.target.value)} />
+          </label>
+        </li>
+        <li>
+          <label>Are you a loan officer:
+            <input
+              type="boolean"
+              value={loanOfficer}
+              onChange={(e) => setOff(e.target.value)} />
+          </label>
+        </li>
+        <li>
+          <label>Do you have an Creditapp?:
+            <input
+              type="text"
+              value={creditApp}
+              onChange={(e) => setApp(e.target.value)} />
+          </label>
+        </li>
 
-    return(
-        <>
-        <Header/>
-        <div>
-            <Form action="post">
-            <ul>
-            <h1>Registration</h1>
-           <li> <label>Username</label></li>
-            <input type="text" onChange={(ev) => setUsername(ev.target.value)}  >
-            </input>
-            <li>   <label>password</label> </li>
-            <input type="password" onChange={(ev) => setPassword(ev.target.value)} ></input>
-          <li>  <label>name</label></li>
-            <input type="text" onChange={(ev) => setName(ev.target.value)}></input>
-            <li>   <label>email</label> </li>
-            <input type="email" onChange={(ev) => setEmail(ev.target.value)} ></input>
-            <li>  <label>phone number</label> </li>
-            <input type="number"onChange={(ev) => setPhoneNumber(ev.target.value)} ></input>
-            <li>   <label>loanOfficer</label> <input type="checkbox"onChange={(ev) => setOfficer(ev.target.value)} ></input>  </li>
-             <li><label> hasLoanApplicationPending</label><input type="checkbox"onChange={(ev) => setCreditapp(ev.target.value)} ></input></li>
-            
-           <li><label> creditScore</label></li> 
-            <input type="number" onChange={(ev) => setCreditScore(ev.target.value)} ></input>
-            <li><label> checkingAccount</label></li>
-            <input type="number"onChange={(ev) => setAccount(ev.target.value)} ></input>
-            <li> <input className={'inputButton'} type="button" onClick={onButtonClick} value={'submit'} /></li>
-            </ul>
-            </Form>
-        </div>
-        
-        </>
-    )
+        <li>
+          <label>Enter your credit score:
+            <input
+              type="text"
+              value={creditScore}
+              onChange={(e) => setScore(e.target.value)} />
 
+          </label>
+        </li>
+        <li>
+          <label>Enter your CheckingAccount number:
+            <input
+              type="text"
+              value={CheckingAccount}
+              onChange={(e) => setCheck(e.target.value)} />
+          </label>
+        </li>
+        <input type="submit" />
+      </ul>
+    </form><img src="http://www.gifbay.com/gif/after_5_years_of_college_i_realize_that_i_probably_wont_work_in_the_field_of_my_study-123985/" alt="pic" /></>
+
+  )
 }
 
+export default MyForm ;
 
-export default Registration
