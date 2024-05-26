@@ -17,3 +17,51 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.formList{
+  display: block;
+  overflow: hidden;
+}
+
+li{
+  list-style-type: none;
+  text-decoration: none;
+  padding: 3px
+}
+
+.navStyle a:hover {
+  display: block;
+  text-decoration: none;
+  background-color: rgb(36, 36, 36);
+}
+
+.navStyle {
+  margin: 0 auto;
+  opacity: 0.9;
+  background-color: rgb(12, 12, 12);
+}
+
+.navLink{
+  color: rgb(214, 214, 214);
+  text-decoration: none;
+  font-size: 18px;
+}
+
+label{
+  display: flex;
+justify-content: left;
+}
+
+input{
+  width: 14rem
+}
+
+#sub{
+  margin-top: 2rem;
+  width: 8rem;
+  opacity: 0.9;
+  border-color: aliceBlue(50, 50, 50);
+  background-color: rgb(51, 50, 130);
+  color: white;
+  border-radius: 2px;
+}

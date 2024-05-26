@@ -24,13 +24,23 @@ function Transactions ()
 let id = [1];
 const index = [1,2,3,4,5,6]
 
-index.findIndex(render)
+
 console.log(stuff)
 //stuff.forEach()
 
       return (
-       <div>
-          
+       <div>   
+        <Header />
+          <h2>Bank Accounts</h2>
+            <div>
+                <div className="Debit">
+
+                </div>
+                <div className="FundsDisplay">
+                    Name's Checking Account
+                </div>
+            </div>
+            <ul className="transactions"></ul>
           {stuff
           .map((stuff) => (
             <>
@@ -40,16 +50,12 @@ console.log(stuff)
           ))}
         </div>
       );
-    };
-function render(index)
-{
+   
 
+  
+        
 
-
-    return(
-        <h1></h1>
-    )
-}
+} 
 
     
 
