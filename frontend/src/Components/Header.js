@@ -14,14 +14,14 @@ return (
     <header>
       <h1>Mobile and computer based banking
       </h1>
-      <nav class="navStyle" style={navStyle}>
-        <Link class="navLink" to="/">
+      <nav className="navStyle" style={navStyle}>
+        <Link className="navLink" to="/">
           <div>Home page</div>
         </Link>
-        <Link class="navLink" to="/create">
+        <Link className="navLink" to="/create">
           <div>Create Account</div>
         </Link>
-        <Link class="navLink" to="/Transaction">
+        <Link className="navLink" to="/Transaction">
           <div>Transactions</div>
         </Link>
       </nav>
