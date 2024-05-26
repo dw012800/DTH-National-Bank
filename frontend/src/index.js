@@ -7,10 +7,28 @@ import 'bootstrap/dist/css/bootstrap.css';
 import { BrowserRouter } from 'react-router-dom';
 import { useState } from "react";
 import { Link } from "react-router-dom";
-function Index(props) {
- 
 
+  
+function Index(props) {
+
+  const loaded = () => {
+    return props.User.map((member) => (
+     
+      <div key={member.Username} className="Member">
+        <Link to={`/members/${member._id}`}><h1>{member.name}</h1></Link>
+        <img src={member.image} alt={member.name} />
+        <h3>{member.title}</h3>
+      </div> 
+    ));
   };
+  const loading = () => {
+    return <h1>Loading...</h1>;
+  };
+  return props.member ? loaded() : loading()
+
+ 
+}
+
 
 
 

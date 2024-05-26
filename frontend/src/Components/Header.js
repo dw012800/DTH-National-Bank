@@ -21,6 +21,11 @@ return (
         <Link className="navLink" to="/create">
           <div>Create Account</div>
         </Link>
+        <Link to="/Transaction">
+          <div>Transactions</div>
+        </Link>
+        <Link to="/log"/>
+          <div>Login</div>
         <Link className="navLink" to="/Transaction">
           <div>Transactions</div>
         </Link>
