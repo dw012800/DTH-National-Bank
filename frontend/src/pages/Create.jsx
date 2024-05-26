@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import ReactDOM from 'react-dom/client';
+import Header from "../Components/Header";
 
 function MyForm(props) {
   const [Username, setU] = useState("");
@@ -43,14 +44,16 @@ function MyForm(props) {
         console.log(name)
       }
   
-
-  return (
-
-
-    <><form onSubmit={handleSubmit}>
-      <ul>
+      return (
+        
+        
+        <>
+      <Header/>
+        <form onSubmit={handleSubmit}>
+      <ul className='formList'>
         <li>
-          <label>Enter your Username:
+          <label>Username
+            <br></br>
             <input
               type="text"
               value={Username}
@@ -58,7 +61,8 @@ function MyForm(props) {
           </label>
         </li>
         <li>
-          <label>Enter your name:
+          <label>Name
+            <br></br>
             <input
               type="text"
               value={name}
@@ -66,7 +70,8 @@ function MyForm(props) {
           </label>
         </li>
         <li>
-          <label>Enter your Email:
+          <label>Email
+            <br></br>
             <input
               type="text"
               value={email}
@@ -74,7 +79,8 @@ function MyForm(props) {
           </label>
         </li>
         <li>
-          <label>Enter your Phonenumber:
+          <label>Phone Number
+            <br></br>
             <input
               type="number"
               value={phoneNumber}
@@ -82,7 +88,8 @@ function MyForm(props) {
           </label>
         </li>
         <li>
-          <label>Are you a loan officer:
+          <label>Are you a Loan Officer?
+            <br></br>
             <input
               type="boolean"
               value={loanOfficer}
@@ -90,7 +97,8 @@ function MyForm(props) {
           </label>
         </li>
         <li>
-          <label>Do you have an Creditapp?:
+          <label>Do you have a Credit App?
+            <br></br>
             <input
               type="text"
               value={creditApp}
@@ -99,7 +107,8 @@ function MyForm(props) {
         </li>
 
         <li>
-          <label>Enter your credit score:
+          <label>Credit Score
+            <br></br>
             <input
               type="text"
               value={creditScore}
@@ -108,16 +117,19 @@ function MyForm(props) {
           </label>
         </li>
         <li>
-          <label>Enter your CheckingAccount number:
+          <label>Checking Account Number
+            <br></br>
             <input
               type="text"
               value={CheckingAccount}
               onChange={(e) => setCheck(e.target.value)} />
           </label>
         </li>
-        <input type="submit" />
+        <input id="sub" type="submit" value="Create Account"/>
       </ul>
-    </form><img src="http://www.gifbay.com/gif/after_5_years_of_college_i_realize_that_i_probably_wont_work_in_the_field_of_my_study-123985/" alt="pic" /></>
+    </form>
+    {/*<img src="http://www.gifbay.com/gif/after_5_years_of_college_i_realize_that_i_probably_wont_work_in_the_field_of_my_study-123985/" alt="pic" />*/}
+    </> 
 
   )
 }
