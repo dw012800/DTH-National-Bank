@@ -8,6 +8,7 @@ import MyForm from './pages/Create';
 import Transactions from './pages/Trans';
 import Login from './pages/LoginPage';
 import { useEffect, useState } from "react";
+import Index from '.';
 
 
 
@@ -20,19 +21,37 @@ function App(props) {
   const GetUser = async () => {
     const response = await fetch(URL);
     const data = await response.json();
-    console.log(data)
-    setUser(data);
+    const stuff = data;
+    console.log(stuff.name)
+    
+    return(
+      <h1>data[0].name</h1>
+    )
   };
 
 
 
 
-  useEffect(() =>{ GetUser()}, []);
 
 
 
 
+  const createMember = async (member) => {
+    // make post request to create people
+    await fetch(URL, {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(member),
+    });
+    // update list of people
+    GetUser();
+  };
 
+ // useEffect(async() => GetUser(), []);
+  useEffect(() =>{GetUser()}, []);
+let id = [1 , 2 , 3]
 
 
   return (
@@ -42,9 +61,9 @@ function App(props) {
  <Routes>
  <Route exact path="/" element={<Home/>}/>
 <Route exact path="/Create" element={<MyForm/>}/>
-<Route exact path="/Transaction" element={<Transactions/>}/>
+<Route exact path="/Transaction/:id" element={<Transactions/>}/>
 <Route exact path="/Log" element={<Login/>}/>
-
+<Route exact path="/members/:id"   element={<Index/>}/>
 </Routes>
  
         

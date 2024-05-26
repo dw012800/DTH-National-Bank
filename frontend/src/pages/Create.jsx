@@ -10,6 +10,8 @@ function MyForm(props) {
   const [creditScore, setScore] = useState("");
   const [CheckingAccount, setCheck] = useState("");
   const [name, setName] = useState("");
+  const [_id, setID] = useState("");
+  const [Money, setMoney] = useState("");
   
 
 
@@ -31,7 +33,9 @@ function MyForm(props) {
             creditApp,
             creditScore,
             CheckingAccount,
-            name
+            name,
+            _id,
+            Money
           })
         })
         const data = await res.json();
@@ -101,7 +105,7 @@ function MyForm(props) {
         <li>
           <label>Enter your credit score:
             <input
-              type="text"
+              type="number"
               value={creditScore}
               onChange={(e) => setScore(e.target.value)} />
 
@@ -113,6 +117,22 @@ function MyForm(props) {
               type="text"
               value={CheckingAccount}
               onChange={(e) => setCheck(e.target.value)} />
+          </label>
+        </li>
+        <li>
+          <label>Enter your ID number:
+            <input
+              type="number"
+              value={_id}
+              onChange={(e) => setID(e.target.value)} />
+          </label>
+        </li>
+        <li>
+          <label>Please enter start balance:
+            <input
+              type="number"
+              value={Money}
+              onChange={(e) => setMoney(e.target.value)} />
           </label>
         </li>
         <input type="submit" />
