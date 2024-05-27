@@ -5,6 +5,7 @@ import './Login.scss'
 import { useState } from 'react';
 import {  useNavigate } from 'react-router-dom'
 import Transactions from "./Trans";
+import Header from "../Components/Header"
 
 
 
@@ -42,8 +43,9 @@ return(
   
 
     <> 
-
+  <Header></Header>
   <div className="Custom-Part">
+  
       <div className="wrapper">
         <form action="">
           <h1>Login</h1>
