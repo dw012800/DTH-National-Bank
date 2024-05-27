@@ -5,11 +5,11 @@ import { useState, useEffect } from 'react';
 
 
 
-
+let index = 0;
 
 function Transactions () 
 {     
-    const [stuff, setStuff] = useState([]);
+    let [stuff, setStuff] = useState([]);
     
     useEffect(() => {
         fetch('http://localhost:3000/all')
@@ -18,51 +18,189 @@ function Transactions ()
           })
           .then((data) => {
             console.log(data);
-            setStuff(data);
+            setStuff(data.json);
+           
+            console.log(stuff)
+            
           });
+         
       }, []);
-let id = [1];
-const index = [1,2,3,4,5,6]
-
-
-console.log(stuff)
-//stuff.forEach()
 
       return (
-       <div>   
-        <Header />
-          <h2>Bank Accounts</h2>
-            <div>
-                <div className="Debit">
-
-                </div>
-                <div className="FundsDisplay">
-                    Name's Checking Account
-                </div>
-            </div>
-            <ul className="transactions"></ul>
-          {stuff
-          .map((stuff) => (
-            <>
-            <h1>Welcome {stuff.Username}</h1>
-            <h1>{stuff.name}</h1>
-            </>
-          ))}
-        </div>
-      );
+        
+    
+        <div>
+      <> 
+        {stuff.map((stuff) => (
+       <h1>hello: {stuff.Username}</h1>
+        ))}</>
+      </div>
+       
+        
+        
+       
+        
+        
+      )
+}
    
 
-  
-        
-
-} 
-
-    
-
-
-
-
-
+  // <div>   <div className="Debit">
+//
+  //          </div>
+    //          <div className="FundsDisplay">
+      //          <h1>Name's Checking Account</h1>
+        //      </div>
+         // </div> <ul className="transactions"></ul>
+         //</div> 
 
 
 export default Transactions;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                                                                       
+ 
+                                                                                                                                                                                                                                                                                                                                                                                                                     

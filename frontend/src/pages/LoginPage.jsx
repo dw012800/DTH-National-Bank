@@ -4,14 +4,14 @@ import './styles/Login.css'
 import './Login.scss'
 import { useState } from 'react';
 import {  useNavigate } from 'react-router-dom'
-import Transactions from "./Trans";
 
 
 
 
- function Login()
+
+function Login()
 {
- let [Username, setU] = useState("");
+ const [Username, setU] = useState("");
  const [Password, setP] = useState("");  
  const [ID, setID] = useState("");  
  
@@ -22,11 +22,8 @@ import Transactions from "./Trans";
   event.preventDefault(); 
   console.log(`${Username}`)
   newID = ID;
-if (Username === "tevon64")
+  if (Username === "tevon64")
   {
-  const stuff = <Transactions username = {Username}
-    name = {"tevon"} />
-
 console.log("step 1")
 alert("Login successful, Redirecting....")
 navigate("/Transaction/" + newID)
@@ -36,8 +33,13 @@ else
   {
   console.log("missed")
   }
-}
-<Transactions username = {Username} />
+
+
+  }
+
+
+
+
 return(
   
 
@@ -73,8 +75,8 @@ return(
   
 
 
+
+
+
 }
-
-
-
 export default Login;
