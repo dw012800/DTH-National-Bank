@@ -9,6 +9,7 @@ import Transactions from './pages/Trans';
 import Login from './pages/LoginPage';
 import { useEffect, useState } from "react";
 import Index from '.';
+import { Fetch } from './pages/Trans2';
 
 
 
@@ -61,7 +62,7 @@ let id = [1 , 2 , 3]
  <Routes>
  <Route exact path="/" element={<Home/>}/>
 <Route exact path="/Create" element={<MyForm/>}/>
-<Route exact path="/Transaction/:id" element={<Transactions/>}/>
+<Route exact path="/Transaction/:id" element={<Fetch/>}/>
 <Route exact path="/Log" element={<Login/>}/>
 <Route exact path="/members/:id"   element={<Index/>}/>
 </Routes>

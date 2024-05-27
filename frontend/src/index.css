@@ -82,11 +82,11 @@ input{
 }
 
 #creditCard {
-  /* position: absolute;
-  top: 88%;
+  position: absolute;
+  top: 58%;
   left: 29%;
   font-size: 18px;
-  color: goldenrod; */
+  color: goldenrod;
 }
 
 #account {
