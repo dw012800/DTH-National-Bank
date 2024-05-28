@@ -41,7 +41,7 @@ function Login()
 const sub = async (event) => {
   event.preventDefault();
   try {
-      const response = await fetch('http://localhost:3000/log', {
+      const response = await fetch('http://localhost:3000/loguser', {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json'
