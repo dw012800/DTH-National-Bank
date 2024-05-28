@@ -2,6 +2,7 @@ import Header from "../Components/Header"
 import Login from "./LoginPage"
 import { useParams } from "react-router";
 import { useState, useEffect } from 'react';
+import './Show.css'
 
 
 
@@ -9,7 +10,7 @@ let index = 0;
 
 function Transactions () 
 {     
-    let [stuff, setStuff] = useState([]);
+    let [stuffs, setStuff] = useState([]);
     
     useEffect(() => {
         fetch('http://localhost:3000/all')
@@ -18,24 +19,19 @@ function Transactions ()
           })
           .then((data) => {
             console.log(data);
-            setStuff(data.json);
+            setStuff(data);
            
-            console.log(stuff)
+            console.log(setStuff)
+            console.log(stuffs)
             
           });
          
       }, []);
 
-      return (
+      return(
         
     
-        <div>
-      <> 
-        {stuff.map((stuff) => (
-       <h1>hello: {stuff.Username}</h1>
-        ))}</>
-      </div>
-       
+       <h1>Welcome:{stuffs.forEach}</h1>
         
         
        
@@ -57,7 +53,17 @@ function Transactions ()
 
 export default Transactions;
 
-
+ //<div>
+        //<h1>Featured Products</h1>
+        //<div className='item-container'>
+          //{stuffs.map((element, index) => (
+            //<div className='card'>
+              //<h3>{element.Username}</h3>
+              //<p>{element.name}</p>
+            //</div>
+          //))}
+        //</div>
+      //</div>
 
 
 

@@ -1,7 +1,6 @@
 import { FaUserLarge } from "react-icons/fa6";
 import { RiLockPasswordLine } from "react-icons/ri";
 import './styles/Login.css'
-import './Login.scss'
 import { useState } from 'react';
 import {  useNavigate } from 'react-router-dom'
 
