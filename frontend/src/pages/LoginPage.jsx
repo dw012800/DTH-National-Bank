@@ -3,6 +3,7 @@ import { RiLockPasswordLine } from "react-icons/ri";
 import './styles/Login.css'
 import { useState } from 'react';
 import {  useNavigate } from 'react-router-dom'
+import Header from "../Components/Header"
 
 
 
@@ -17,34 +18,59 @@ function Login()
  let newID = "";
     const navigate = useNavigate()  
 
-  const sub = (event) => {
-  event.preventDefault(); 
-  console.log(`${Username}`)
-  newID = ID;
-  if (Username === "tevon64")
-  {
-console.log("step 1")
-alert("Login successful, Redirecting....")
-navigate("/Transaction/" + newID)
+//   const sub = (event) => {
+//   event.preventDefault(); 
+//   console.log(`${Username}`)
+//   newID = ID;
+//   if (Username === "tevon64")
+//   {
+// console.log("step 1")
+// alert("Login successful, Redirecting....")
+// navigate("/Transaction/" + newID)
 
+//   }
+// else
+//   {
+//   console.log("missed")
+//   }
+
+
+//   }
+
+const sub = async (event) => {
+  event.preventDefault();
+  try {
+      const response = await fetch('http://localhost:3000/log', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ username: Username})
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+          setID(data.id);
+          alert("Login successful, Redirecting....");
+          navigate("/Transaction/" + data.id);
+      } else {
+          alert(data.message);
+      }
+  } catch (error) {
+      console.error(error);
+      alert("An error occurred during login.");
   }
-else
-  {
-  console.log("missed")
-  }
-
-
-  }
-
-
+};
 
 
 return(
   
 
     <> 
-
+  <Header></Header>
   <div className="Custom-Part">
+  
       <div className="wrapper">
         <form action="">
           <h1>Login</h1>

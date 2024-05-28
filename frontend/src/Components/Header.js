@@ -21,13 +21,11 @@ return (
         <Link className="navLink" to="/create">
           <div>Create Account</div>
         </Link>
-        <Link to="/Transaction">
+        <Link className="navLink" to="/Transaction/:id">
           <div>Transactions</div>
         </Link>
-        <Link to="/log"/>
+        <Link className="navLink" to="/log">
           <div>Login</div>
-        <Link className="navLink" to="/Transaction">
-          <div>Transactions</div>
         </Link>
       </nav>
     </header>
