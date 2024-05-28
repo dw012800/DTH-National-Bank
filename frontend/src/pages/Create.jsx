@@ -2,7 +2,7 @@ import { useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import Header from "../Components/Header";
 
-function MyForm(props) {
+export function MyForm(props) {
   const [Username, setU] = useState("");
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhone] = useState("");
@@ -155,5 +155,5 @@ function MyForm(props) {
   )
 }
 
-export default MyForm ;
+export default MyForm;
 
