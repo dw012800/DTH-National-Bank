@@ -2,6 +2,7 @@ import Header from "../Components/Header"
 import Login from "./LoginPage"
 import { useParams } from "react-router";
 import { useState, useEffect } from 'react';
+import './Show.css'
 
 
 
@@ -9,7 +10,7 @@ let index = 0;
 
 function Transactions () 
 {     
-    let [stuff, setStuff] = useState([]);
+    let [stuffs, setStuff] = useState([]);
     
     useEffect(() => {
         fetch('http://localhost:3000/all')
@@ -18,9 +19,10 @@ function Transactions ()
           })
           .then((data) => {
             console.log(data);
-            setStuff(data.json);
+            setStuff(data);
            
-            console.log(stuff)
+            console.log(setStuff)
+            console.log(stuffs)
             
           });
          
@@ -42,13 +44,7 @@ function Transactions ()
             <h3 id="creditCard"> Your Name</h3>
             <ul className="transactions"></ul>
            
-          {stuff
-          .map((stuff) => (
-            <>
-            <h1>Welcome {stuff.Username}</h1>
-            <h1>{stuff.name}</h1>
-            </>
-          ))}
+          
            <h2 id="account">Checking Account</h2>
            <h4 id="account1">Balance: $50,000</h4>
         </div>
@@ -67,7 +63,17 @@ function Transactions ()
 
 export default Transactions;
 
-
+ //<div>
+        //<h1>Featured Products</h1>
+        //<div className='item-container'>
+          //{stuffs.map((element, index) => (
+            //<div className='card'>
+              //<h3>{element.Username}</h3>
+              //<p>{element.name}</p>
+            //</div>
+          //))}
+        //</div>
+      //</div>
 
 
 
