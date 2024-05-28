@@ -64,7 +64,7 @@ let id = [1 , 2 , 3]
  <Routes>
  <Route exact path="/" element={<Home/>}/>
 <Route exact path="/Create" element={<MyForm/>}/>
-<Route exact path="/Transaction/:id" element={<ApiPage/>}/>
+<Route exact path="/Transaction/:id" element={<Real/>}/>
 <Route exact path="/Log" element={<Login/>}/>
 <Route exact path="/try"  element={<Real/>}/>
 </Routes>
