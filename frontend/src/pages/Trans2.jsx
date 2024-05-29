@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './Show.css';
 
+const URL = "http://localhost:3000/all/";
+
 function Real() {
     // Define state to hold the fetched data
     const [cards, setCards] = useState([]);
@@ -20,7 +22,7 @@ function Real() {
         const fetchData = async () => {
             try {
                 // Fetch data from an API
-                const response = await fetch('http://localhost:3000/all');
+                const response = await fetch(URL);
                 
                 // Check if the response is successful
                 if (!response.ok) {
@@ -45,10 +47,10 @@ function Real() {
     }, []); // Empty dependency array ensures the effect runs only once
 
     // Function to handle deletion of a card
-    const deleteCard = async (index) => {
+    const deleteCard = async (id, index) => {
         try {
             // Make DELETE request to the API
-            await fetch(`http://localhost:3000/card/${cards[index].id}`, {
+            await fetch(`http://localhost:3000/all/${id}`, {
                 method: 'DELETE'
             });
             // Update state to remove the deleted card
@@ -87,7 +89,7 @@ function Real() {
         event.preventDefault();
         try {
             // Make PUT request to the API to update the card
-            await fetch(`http://localhost:3000/card/${cards[editIndex].id}`, {
+            await fetch(URL, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
@@ -100,6 +102,7 @@ function Real() {
                     email: formData.email
                 })
             });
+    
             // Update state with the edited card data
             const updatedCards = [...cards];
             updatedCards[editIndex] = {
@@ -112,9 +115,28 @@ function Real() {
             };
             setCards(updatedCards);
             setEditIndex(null);
+    
+            // Call updatePeople to update the backend
+            await updatePeople(formData, updatedCards[editIndex]._id);
         } catch (error) {
             // Handle errors
             console.error('Error updating card:', error);
+        }
+    };
+    // Function to update people
+    const updatePeople = async (person, id) => {
+        try {
+            // Make PUT request to update person
+            await fetch(`${URL}${id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(person)
+            });
+        } catch (error) {
+            // Handle errors
+            console.error('Error updating person:', error);
         }
     };
 
@@ -176,7 +198,8 @@ function Real() {
                                 <p>Available balance: ${card.Money}</p>
                                 <p>Credit Score: {card.creditScore}</p>
                                 <p>Email address: {card.email}</p>
-                                <button onClick={() => deleteCard(index)}>Delete</button>
+                                <img src={card.pic}/>
+                                <button onClick={() => deleteCard(card._id, index)}>Delete</button>
                                 <button onClick={() => editCard(index)}>Edit</button>
                             </>
                         )}
