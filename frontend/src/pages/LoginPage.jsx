@@ -40,7 +40,7 @@ function Login()
 const sub = async (event) => {
   event.preventDefault();
   try {
-      const response = await fetch('http://localhost:3000/loguser', {
+      const response = await fetch('http://localhost:3000/log', {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json'
@@ -58,7 +58,7 @@ const sub = async (event) => {
           alert(data.message);
       }
   } catch (error) {
-      console.error(error);
+      console.log(error);
       alert("An error occurred during login.");
   }
 };
